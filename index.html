@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mission to Mars</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&family=Oswald:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      /* Body styles */
+      body {
+        font-family: 'Noto Serif', sans-serif;
+        font-size: 13.5px;
+        margin: 0;
+        background-color: #F9F9F9;
+        color: #444;
+      }
+
+      /* Header styles */
+      .header {
+        background-color: #F9F9F9;
+        color: black;
+        text-align: center;
+        padding: 20px 0;
+      }
+
+      .header h1 {
+        margin: 0;
+        font-size: 52px;
+        font-weight: 600;
+      }
+
+      /* Typography */
+      h1,
+      h2 {
+        font-family: 'Oswald', sans-serif;
+        text-transform: uppercase;
+        font-weight: 500;
+      }
+
+      h1 {
+        font-size: 34px;
+        color: #333333;
+        padding: 10px;
+      }
+
+      h2 {
+        font-size: 24px;
+        color: #4AAAA5;
+        margin: 0;
+        padding-top: 5px;
+      }
+
+      hr {
+        color: #4AAAA5;
+        height: 2px;
+      }
+
+      p {
+        font-family: 'Noto Serif', sans-serif;
+        font-size: 13.5px;
+        line-height: 2;
+        font-weight: 400;
+      }
+
+      /* Card styles */
+      .card {
+        background-color: #fff;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        border-color: #333333;
+        border-width: 1px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+      }
+
+      .card-header {
+        background-color: white;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        font-size: 24px;
+        font-weight: 700;
+        color: black;
+        display: flex;
+        align-items: center;
+      }
+
+      .card:first-child .card-body {
+        text-align: center;
+        background-color: #F9F9F9;
+      }
+
+      .table-striped tbody tr:nth-of-type(odd) {
+        background-color: white !important;
+      }
+
+      thead {
+        background-color: white !important;
+      }
+
+      /* Image styles */
+      .featured-image,
+      .hemi-image img {
+        max-width: 100%;
+        width: 100%;
+        border-radius: 10px;
+      }
+
+      .hemi-images {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+        .hemi-image img {
+      max-width: 100%;
+      height: 150px;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      object-fit: cover;
+    }
+
+    .hemi-image p {
+      font-size: 13.5px;
+      margin: 0;
+      padding: 10px;
+      text-align: center;
+      color: #444;
+      line-height: 1.4;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <h1>Mission to Mars</h1>
+  </header>
+  <div class="container">
+    <p class="button-container">
+      <a class="btn btn-primary" href="/scrape" role="button">Scrape New Data</a>
+    </p>
+    <div class="card">
+      <div class="card-header">
+        <h2>Latest News</h2>
+      </div>
+      <hr>
+      <div class="card-body">
+        <p>{{ mars_db.news_title }}</p>
+        <p>{{ mars_db.news_p }}</p>
+      </div>
+    </div>
+    <div class="row my-flex-card">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <h2>Featured Image</h2>
+          </div>
+          <hr>
+          <div class="card-body">
+            <img class="featured-image" src="{{ mars_db.featured_image_url }}" alt="Featured Mars Image">
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <h2>Mars Facts</h2>
+          </div>
+          <hr>
+          <div class="card-body">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">Description</th>
+                  <th scope="col">Mars</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Equatorial Diameter:</td>
+                  <td>{{ mars_db.equatorial_diameter }}</td>
+                </tr>
+                <tr>
+                  <td>Polar Diameter:</td>
+                  <td>{{ mars_db.polar_diameter }}</td>
+                </tr>
+                <tr>
+                  <td>Mass:</td>
+                  <td>{{ mars_db.mass }}</td>
+                </tr>
+                <tr>
+                  <td>Moons:</td>
+                  <td>{{ mars_db.moons }}</td>
+                </tr>
+                <tr>
+                  <td>Orbit Distance:</td>
+                  <td>{{ mars_db.orbit_distance }}</td>
+                </tr>
+                <tr>
+                  <td>Orbit Period:</td>
+                  <td>{{ mars_db.orbit_period }}</td>
+                </tr>
+                <tr>
+                  <td>Surface Temperature:</td>
+                  <td>{{ mars_db.surface_temperature }}</td>
+                </tr>
+                <tr>
+                  <td>First Record:</td>
+                  <td>{{ mars_db.first_record }}</td>
+                </tr>
+                <tr>
+                  <td>Recorded By:</td>
+                  <td>{{ mars_db.recorded_by }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card
