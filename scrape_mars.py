@@ -51,7 +51,7 @@ def scrape():
         data.append({'title': title, 'img_url': img_url})
 
 
-    mars_website_db = {
+    mars_web_info = {
         'news_title': news_title,
         'news_paragraph': news_paragraph,
         'featured_image_url': featured_image_url,
@@ -61,4 +61,4 @@ def scrape():
 
     browser.quit()
 
-    return mars_website_db
+    return mars_web_info
